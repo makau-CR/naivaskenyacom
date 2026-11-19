@@ -1,0 +1,763 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Naivas Careers | Apply</title>
+  <!-- Font Awesome 6 (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ---------- GLOBAL RESET & VARIABLES ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    :root {
+      --naivas-green: #007a3d;
+      --naivas-green-dark: #005f2f;
+      --naivas-orange: #f59e0b;
+      --naivas-light: #f8fafc;
+      --gray-100: #f1f5f9;
+      --gray-200: #e2e8f0;
+      --gray-600: #475569;
+      --gray-800: #1e293b;
+      --white: #ffffff;
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --transition: all 0.2s ease;
+    }
+
+    body {
+      background: var(--naivas-light);
+      color: var(--gray-800);
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ---------- HEADER ---------- */
+    .header {
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-icon {
+      background: var(--naivas-green);
+      color: white;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .logo-text {
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: var(--naivas-green-dark);
+    }
+
+    .logo-text span {
+      color: var(--naivas-orange);
+    }
+
+    .header-nav {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .header-nav a {
+      text-decoration: none;
+      color: var(--gray-600);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+
+    .header-nav a:hover {
+      color: var(--naivas-green);
+    }
+
+    /* ---------- MAIN CONTAINER ---------- */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.5rem;
+      flex: 1;
+      width: 100%;
+    }
+
+    /* ---------- HERO / JOB LIST (HOME) ---------- */
+    .hero {
+      background: linear-gradient(135deg, var(--naivas-green) 0%, #009e4f 100%);
+      border-radius: var(--radius-lg);
+      padding: 2rem 2rem;
+      color: white;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      opacity: 0.95;
+      max-width: 600px;
+    }
+
+    .job-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .job-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--gray-200);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .job-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--naivas-green);
+    }
+
+    .job-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--gray-800);
+      margin-bottom: 0.35rem;
+    }
+
+    .job-dept {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--naivas-green);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .job-desc {
+      color: var(--gray-600);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      flex: 1;
+      line-height: 1.6;
+    }
+
+    .job-salary {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--naivas-green-dark);
+      background: #e6f7ed;
+      padding: 0.5rem 0.85rem;
+      border-radius: 40px;
+      margin-bottom: 1.25rem;
+      width: fit-content;
+    }
+
+    .job-salary i {
+      color: var(--naivas-orange);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+      background: var(--white);
+      color: var(--naivas-green);
+      border: 1.5px solid var(--naivas-green);
+    }
+
+    .btn-primary {
+      background: var(--naivas-green);
+      color: white;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background: var(--naivas-green-dark);
+    }
+
+    .btn-block {
+      width: 100%;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid var(--naivas-green);
+      color: var(--naivas-green);
+    }
+
+    .btn-outline:hover {
+      background: var(--naivas-green);
+      color: white;
+    }
+
+    /* ---------- APPLICATION FORM / PAYMENT / VERIFY PAGES ---------- */
+    .page-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow-md);
+      max-width: 700px;
+      margin: 0 auto;
+      border: 1px solid var(--gray-200);
+    }
+
+    .page-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--gray-800);
+      margin-bottom: 0.5rem;
+    }
+
+    .page-subtitle {
+      color: var(--gray-600);
+      margin-bottom: 1.75rem;
+      border-bottom: 1px solid var(--gray-200);
+      padding-bottom: 1rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 0.35rem;
+      font-size: 0.95rem;
+      color: var(--gray-800);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--radius-md);
+      font-size: 1rem;
+      transition: var(--transition);
+      background: var(--white);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--naivas-green);
+      box-shadow: 0 0 0 3px rgba(0, 122, 61, 0.1);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .file-upload {
+      border: 2px dashed var(--gray-200);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      text-align: center;
+      cursor: pointer;
+      transition: var(--transition);
+      background: var(--naivas-light);
+    }
+
+    .file-upload:hover {
+      border-color: var(--naivas-green);
+      background: #f0fdf4;
+    }
+
+    .file-upload i {
+      font-size: 2rem;
+      color: var(--naivas-green);
+      margin-bottom: 0.5rem;
+    }
+
+    .file-upload p {
+      color: var(--gray-600);
+      font-size: 0.9rem;
+    }
+
+    .file-upload input {
+      display: none;
+    }
+
+    .file-name {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--naivas-green);
+      font-weight: 500;
+    }
+
+    .payment-box {
+      background: var(--naivas-light);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-left: 5px solid var(--naivas-green);
+    }
+
+    .payment-box h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .payment-detail {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+      border-bottom: 1px dashed var(--gray-200);
+    }
+
+    .payment-detail span:first-child {
+      color: var(--gray-600);
+    }
+
+    .payment-detail span:last-child {
+      font-weight: 700;
+      color: var(--gray-800);
+    }
+
+    .amount-highlight {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--naivas-green);
+      text-align: center;
+      margin: 1rem 0;
+    }
+
+    .job-summary {
+      background: #f0fdf4;
+      border-radius: var(--radius-md);
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.25rem;
+      border-left: 4px solid var(--naivas-green);
+    }
+
+    .job-summary p {
+      font-size: 0.9rem;
+      color: var(--gray-600);
+      margin-bottom: 0.25rem;
+    }
+
+    .job-summary strong {
+      color: var(--gray-800);
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--gray-600);
+      text-decoration: none;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      transition: var(--transition);
+    }
+
+    .back-link:hover {
+      color: var(--naivas-green);
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* ---------- ADMIN LOGIN / DASHBOARD ---------- */
+    .admin-login {
+      max-width: 400px;
+      margin: 3rem auto;
+      background: var(--white);
+      padding: 2rem;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--gray-200);
+    }
+
+    .admin-login h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: var(--naivas-green-dark);
+    }
+
+    .admin-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .admin-table th,
+    .admin-table td {
+      text-align: left;
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .admin-table th {
+      background: var(--gray-100);
+      font-weight: 600;
+      color: var(--gray-600);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .admin-table td {
+      font-size: 0.95rem;
+    }
+
+    .admin-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .badge {
+      background: #dcfce7;
+      color: #166534;
+      padding: 0.25rem 0.75rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: inline-block;
+    }
+
+    .badge-pending {
+      background: #fef9c3;
+      color: #854d0e;
+    }
+
+    .admin-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--gray-200);
+    }
+
+    .stat-card p {
+      color: var(--gray-600);
+      font-size: 0.9rem;
+    }
+
+    .stat-card h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--naivas-green);
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 640px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 1.5rem;
+      }
+
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+
+      .page-card {
+        padding: 1.5rem;
+      }
+
+      .header {
+        padding: 0.75rem 1rem;
+      }
+
+      .logo-text {
+        font-size: 1.1rem;
+      }
+
+      .admin-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ---------- FOOTER ---------- */
+    .footer {
+      text-align: center;
+      padding: 1.5rem;
+      color: var(--gray-600);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--gray-200);
+      background: var(--white);
+      margin-top: auto;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gray-800);
+      color: white;
+      padding: 0.75rem 2rem;
+      border-radius: 60px;
+      font-size: 0.95rem;
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+      z-index: 100;
+    }
+
+    .toast.show {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="header">
+    <div class="logo-area">
+      <div class="logo-icon">N</div>
+      <div class="logo-text">Naivas <span>Careers</span></div>
+    </div>
+    <nav class="header-nav">
+      <a href="#" onclick="navigate('home')">Jobs</a>
+      <a href="#" onclick="navigate('admin')" style="font-size:0.85rem;">Admin</a>
+    </nav>
+  </header>
+
+  <!-- ========== MAIN CONTAINER (dynamic content) ========== -->
+  <main class="container" id="app"></main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    &copy; 2025 Naivas Supermarket. All rights reserved. <br> M-Pesa Till: 000000
+  </footer>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast">Message</div>
+
+  <script>
+    // ============================================================
+    //  APPLICATION STATE (simulated backend)
+    // ============================================================
+    const APPLICATION_FEE = 850; // KSh 850
+
+    const store = {
+      jobs: [
+        {
+          id: 1,
+          title: 'Cashier',
+          dept: 'Retail Operations',
+          salary: 'KSh 25,000 – 32,000 / month',
+          desc: 'Handle customer payments accurately at the point of sale, balance cash drawers, issue receipts, and deliver friendly, efficient service at all times. Prior cash-handling experience is an added advantage.'
+        },
+        {
+          id: 2,
+          title: 'Store Assistant',
+          dept: 'Inventory',
+          salary: 'KSh 20,000 – 26,000 / month',
+          desc: 'Receive, arrange and replenish stock on shelves, perform stock counts, maintain clean aisles, and support the inventory team in minimizing shrinkage. Must be physically fit and detail-oriented.'
+        },
+        {
+          id: 3,
+          title: 'Delivery Driver',
+          dept: 'Logistics',
+          salary: 'KSh 28,000 – 35,000 / month',
+          desc: 'Safely deliver customer orders within the set routes and timelines, verify goods against delivery notes, maintain the vehicle logbook, and provide courteous service. Valid BCE driving licence required.'
+        },
+        {
+          id: 4,
+          title: 'Customer Service Representative',
+          dept: 'Support',
+          salary: 'KSh 24,000 – 30,000 / month',
+          desc: 'Attend to customer enquiries and complaints at the service desk and by phone, process returns and exchanges, and escalate issues to the right department while keeping a warm, professional tone.'
+        }
+      ],
+      applications: [], // { id, jobId, fullName, email, phone, cvName, paymentCode, status }
+      currentJob: null,
+      currentApplication: null, // holds temp application before payment
+    };
+
+    // ============================================================
+    //  UTILITY FUNCTIONS
+    // ============================================================
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
+    function navigate(page, data = null) {
+      // simple router
+      if (page === 'home') renderHome();
+      else if (page === 'apply') renderApply(data);
+      else if (page === 'payment') renderPayment(data);
+      else if (page === 'success') renderSuccess(data);
+      else if (page === 'admin') renderAdminLogin();
+      else if (page === 'adminDashboard') renderAdminDashboard();
+      window.scrollTo(0, 0);
+    }
+
+    // ============================================================
+    //  RENDER: HOME (job listing)
+    // ============================================================
+    function renderHome() {
+      const app = document.getElementById('app');
+      const jobsHtml = store.jobs.map(job => `
+        <div class="job-card">
+          <div class="job-dept">${job.dept}</div>
+          <div class="job-title">${job.title}</div>
+          <div class="job-desc">${job.desc}</div>
+          <div class="job-salary">
+            <i class="fas fa-money-bill-wave"></i> ${job.salary}
+          </div>
+          <button class="btn btn-primary btn-block" onclick="startApplication(${job.id})">
+            Apply <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      `).join('');
+
+      app.innerHTML = `
+        <div class="hero">
+          <h1>Join the Naivas Team</h1>
+          <p>Explore exciting career opportunities and grow with Kenya's leading supermarket chain. Application fee: KSh ${APPLICATION_FEE}.</p>
+        </div>
+        <h2 style="margin-bottom:0.5rem; font-weight:600;">Open Positions</h2>
+        <div class="job-grid">${jobsHtml}</div>
+      `;
+    }
+
+    // ============================================================
+    //  RENDER: APPLICATION FORM
+    // ============================================================
+    function startApplication(jobId) {
+      const job = store.jobs.find(j => j.id === jobId);
+      if (!job) return showToast('Job not found');
+      store.currentJob = job;
+      navigate('apply', job);
+    }
+
+    function renderApply(job) {
+      if (!job) {
+        showToast('Please select a job first');
+        return navigate('home');
+      }
+      const app = document.getElementById('app');
+      app.innerHTML = `
+        <div class="page-card">
+          <a href="#" class="back-link" onclick="navigate('home');return false;">
+            <i class="fas fa-arrow-left"></i> Back to jobs
+          </a>
+          <h1 class="page-title">Apply for ${job.title}</h1>
+          <p class="page-subtitle">${job.dept} • Fill in your details below</p>
+
+          <div class="job-summary">
+            <p><strong>Expected salary:</strong> ${job.salary}</p>
+            <p><strong>Application fee:</strong> KSh ${APPLICATION_FEE} (payable via M-Pesa after filling this form)</p>
+          </div>
+
+          <form id="applicationForm" onsubmit="handleApplicationSubmit(event)">
+            <div class="form-group">
+              <label for="fullName">Full Name *</label>
+              <input type="text" id="fullName" class="form-control" placeholder="e.g. John Kamau" required>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" class="form-control" placeholder="john@example.com" required>
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number *</label>
+                <input type="tel" id="phone" class="form-control" placeholder="0712 345 678" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Upload CV (PDF or DOC) *</label>
+              <div class="file-upload" onclick="document.getElementById('cvFile').click()">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <p>Click to upload your CV</p>
+                <p style="font-size:0.8rem;">PDF, DOC, DOCX (max 5MB)</p>
+                <input type="file" id="cvFile" accept=".pdf,.doc,.docx" onchange="showFileName(event)" required>
+              </div>
+              <div class="file-name" id="fileNameDisplay"></div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block" style="margin-top:1rem;">
+              Proceed to payment (KSh ${APPLICATION_FEE}) <i class="fas fa-lock"></i>
+            </button>
+          </form>
+        </div>
+      `;
+    }
+
+    function showFileName(event) {
+      const file = event.target.files[0];
+      const display = document.getElementById('fileNameDisplay');
+      if (file) {
+     
